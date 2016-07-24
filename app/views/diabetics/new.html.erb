@@ -1,0 +1,26 @@
+<h1> Please Enter your Blood Glucose Level </h1>
+
+<%= form_for @diabetic do |f| %>
+
+  <p>
+      <%= f.label :glucose_level %>
+      <%= f.text_field :glucose_level %>
+
+   </p>
+   
+   <h2> <%=current_user.id %> </h2>
+
+
+   <p>
+		<%= f.submit %>
+   </p>
+
+<% end %>
+
+
+
+
+
+
+
+
