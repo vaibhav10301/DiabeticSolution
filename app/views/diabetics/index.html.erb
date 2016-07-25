@@ -1,21 +1,21 @@
+<% page_title "Home" %>
 <h1> List of All Blood Glucose Level</h1>
 <br/>
-<%= link_to 'New Entry', new_diabetic_path %><br/><br/>  
+<%= link_to 'New Entry', new_diabetic_path %> <%= link_to 'View Reports',reports_daily_report_path %>
+
+<br/><br/>  
 <table border=1 >
 <tr>
  <th> Glucose Level </th>
  <th> Time</th>
  </tr>
 
-
-<% if !@diabetics.nil? == true %>
-
-  <% @diabetics.each do |f| %>
-
- <tr>
-     <td><%= f.glucose_level %> </td>
-     <td><%= f.created_at %> </td>
- </tr>
- <% end %>		
- <% end %>
- </table>
+  <% if @diabetics.present? %>
+    <% @diabetics.each do |f| %>
+     <tr>
+       <td><%= f.glucose_level %> </td>
+       <td><%= f.created_at %> </td>
+     </tr>
+    <% end %>		
+  <% end %>
+</table>
