@@ -1,5 +1,15 @@
 <h1> Please Enter your Blood Glucose Level </h1>
 
+<% if @diabetic.errors.any? %>
+<h3>Please see the below errors</h3>
+<ul>
+<% @diabetic.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+
+
 <%= form_for @diabetic do |f| %>
 
   <p>
@@ -8,9 +18,7 @@
 
    </p>
    
-   <h2> <%=current_user.id %> </h2>
-
-
+   <h2> <%=f.hidden_field :user_id, :value => current_user.id %> </h2>
    <p>
 		<%= f.submit %>
    </p>

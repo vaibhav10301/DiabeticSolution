@@ -1,25 +1,24 @@
 class DiabeticsController < ApplicationController
   before_filter :authenticate_user!
   	def index
-		@diabetics = Diabetic.where("user_id = ?", current_user.id)
-	end
+		@diabetics = Diabetic.current_user(current_user.id)
+	  end
 
-	def new
-		@diabetic= Diabetic.new
-	end
+    def new
+    	@diabetic= Diabetic.new
+    end
 
-	def create
-       @diabetic= Diabetic.new(diabetic_params)
-       @diabetic.user_id = current_user.id
+  	def create
+      @diabetic= Diabetic.new(diabetic_params)
         if @diabetic.save
-            redirect_to action: :index
+          redirect_to action: :index
         else
-           redirect_to action: :index  
+          render 'new'
         end    
     end
 
-	private
+  	private
     def diabetic_params
-        params.require(:diabetic).permit(:glucose_level,:user_id)
+      params.require(:diabetic).permit(:glucose_level,:user_id)
     end
 end
