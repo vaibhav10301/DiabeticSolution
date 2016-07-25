@@ -6,7 +6,7 @@ class Diabetic < ActiveRecord::Base
     :message => "Please enter single digit integer value."
 
 
-    #validate :user_quota, :on => :create  
+    validate :user_quota, :on => :create  
    
   scope :current_user, -> (user_id){where(:user_id => user_id)} 
 
