@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    root 'diabetics#index'
    resources :diabetics
 
-   get 'reports/daily_report' => 'reports#daily_report'
+   get 'reports/report'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

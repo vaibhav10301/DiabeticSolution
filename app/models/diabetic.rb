@@ -11,6 +11,10 @@ class Diabetic < ActiveRecord::Base
    
   scope :current_user, -> (user_id){where(:user_id => user_id)} 
 
+  scope :daily_report, -> (user_id){where(:user_id => user_id)}
+
+
+
   private 
     def user_quota
    	  daily_limit = Diabetic.where("user_id = ?", self.user_id).where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now)).to_a
