@@ -10,6 +10,6 @@ Please select Report Type  <%= select_tag :report_type, options_for_select(["Dai
 <% end %>
 <script>
   $(function() {
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
   });
 </script>

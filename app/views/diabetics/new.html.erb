@@ -1,30 +1,35 @@
-<h1> Please Enter your Blood Glucose Level </h1>
+<h1 align = 'center'> Please Enter your Blood Glucose Level </h1>
 
 <% if @diabetic.errors.any? %>
-<h3>Please see the below errors</h3>
-<ul>
-<% @diabetic.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
+  <h3>Please see the below errors</h3>
+  <ul>
+  <% @diabetic.errors.full_messages.each do |msg| %>
+  <li ><%= msg %></li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
-<% end %>
 
-
-<%= form_for @diabetic do |f| %>
-
-  <p>
+<div class = "jumbotron">
+  <%= form_for @diabetic do |f| %>
+    <p>
       <%= f.label :glucose_level %>
       <%= f.text_field :glucose_level %>
 
-   </p>
+    </p>
    
-   <h2> <%=f.hidden_field :user_id, :value => current_user.id %> </h2>
-   
-   <p>
-		<%= f.submit %>
-   </p>
-
+    <h2> <%=f.hidden_field :user_id, :value => current_user.id %> </h2>
+    <p>
+      <%=  f.submit class: 'btn btn-primary' %>
+    </p>
 <% end %>
+</div>
+
+
+
+
+
+
+
 
 
 

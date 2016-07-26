@@ -1,21 +1,27 @@
 <% page_title "Home" %>
-<h1> List of All Blood Glucose Level</h1>
+<h1 align ='center'> List of All Blood Glucose Level</h1>
 <br/>
-<%= link_to 'New Entry', new_diabetic_path %> <%= link_to 'View Reports',reports_report_path %>
+<h4><%= link_to 'New Entry', new_diabetic_path %> <%= link_to 'View Reports',reports_report_path %></h4>
 
 <br/><br/>  
-<table border=1 >
-<tr>
- <th> Glucose Level </th>
- <th> Time</th>
- </tr>
+
+<table class = 'table table-bordered jumbotron'> 
+  <tr>
+    <th class = 'row col-md-2'> Glucose Level </th>
+    <th class = 'row col-md-2'>  Time</th>
+  </tr>
 
   <% if @diabetics.present? %>
     <% @diabetics.each do |f| %>
-     <tr>
-       <td><%= f.glucose_level %> </td>
-       <td><%= f.created_at %> </td>
-     </tr>
+      <tr>
+        <td ><%= f.glucose_level %> </td>
+         <td ><%= f.created_at %> </td>
+      </tr>
     <% end %>		
   <% end %>
 </table>
+
+<ul class="pager">
+  <li class="previous"><a href="#">Previous</a></li>
+  <li class="next"><a href="#">Next</a></li>
+</ul>

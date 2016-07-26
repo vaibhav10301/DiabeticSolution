@@ -27,6 +27,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #gem 'bootstrap-datepicker-rails'
 gem 'jquery-ui-rails'
 
+gem 'bootstrap-datepicker-rails'
+gem "twitter-bootstrap-rails"
+gem "therubyracer", '~> 0.12.2'
+gem "less-rails"
+gem 'bootstrap', '~> 4.0.0.alpha3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -41,6 +46,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 group :development do
