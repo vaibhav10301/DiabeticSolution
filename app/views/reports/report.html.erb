@@ -1,3 +1,15 @@
 <h1> View Reports</h1>
 
-<%= text_field_tag :end_date, 'data-behaviour' => 'datepicker' %>
+<%= form_tag reports_report_path do %>
+Please select Report Type  <%= select_tag :report_type, options_for_select(["Daily Report", "Month to Date report","Monthly Report"]) %>
+
+<%= text_field_tag :end_date, "", class: 'datepicker' %>
+
+<%= submit_tag "View Reports" %>
+
+<% end %>
+<script>
+  $(function() {
+    $('.datepicker').datepicker();
+  });
+</script>

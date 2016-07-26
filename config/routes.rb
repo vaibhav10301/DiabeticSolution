@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    root 'diabetics#index'
    resources :diabetics
 
-   get 'reports/report'
+  match 'reports/report', via: [:get, :post]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
