@@ -12,9 +12,10 @@ class Diabetic < ActiveRecord::Base
   scope :current_user, -> (user_id){where(:user_id => user_id)} 
   
   def self.daily_report user_id
-    daily_report_min = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%m%d')").minimum(:glucose_level)
-    daily_report_max = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%m%d')").maximum(:glucose_level)
-    daily_report_avg = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%m%d')").average(:glucose_level)
+    daily_report_min = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%M %d')").minimum(:glucose_level)
+    daily_report_max = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%M %d')").maximum(:glucose_level)
+    daily_report_avg = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%M %d')").average(:glucose_level)
+    return daily_report_min,daily_report_max,daily_report_avg
   end
 
   def self.month_to_date_report end_date,user_id
@@ -29,6 +30,7 @@ class Diabetic < ActiveRecord::Base
     monthly_report_min = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%M')").minimum(:glucose_level)
     monthly_report_max = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%M')").maximum(:glucose_level)
     monthly_report_avg = Diabetic.where(:user_id => user_id).group("date_format(created_at, '%M')").average(:glucose_level)
+    return monthly_report_min,monthly_report_max,monthly_report_avg
   end
 
   private 
